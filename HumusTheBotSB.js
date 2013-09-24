@@ -174,6 +174,8 @@ document.parseCommands = function(e) {
 				var u = nToks.join(" ");
 				document.banned[u.toLowerCase()] = true;
 				document.sendMessage(u + ' is a ninny-maumfer and I don\'t listen to them anymore.');
+			} else {
+				document.sendMessage('No. No, no, no. You can\'t go banning me all willy-nilly.');
 			}
 			break;
 		case "unban":
