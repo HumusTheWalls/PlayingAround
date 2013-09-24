@@ -53,6 +53,10 @@ document.sayEmail = function(userName) {
 	document.sendMessage(userName + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. [noparse]minezmod@gmail.com[/noparse]');
 };
 
+document.sayStuck = function(userName) {
+	document.sendMessage(userName + 'If you\'re stuck in a block and need an admin to TP you out, just post in [URL=http://shotbow.net/forum/threads/15016/]the Stuck Thread[/URL]. An admin will unstuck you soon!');
+}
+
 document.sayPlugDj = function() {
 	document.sendMessage('Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]!')
 };
@@ -93,6 +97,12 @@ document.parseCommands = function(e) {
 			if(toks.length > 2) var t = toks[3] + ': ';
 			document.sayEmail(t);
 			break;
+		case "stuck":
+			didCommand = true;
+			var t = '';
+			if(toks.length > 2) var t = toks[3] + ': ';
+			document.sayStuck(t);
+			break;
 		case "time":
 			didCommand = true;
 			var d = new Date;
@@ -100,7 +110,7 @@ document.parseCommands = function(e) {
 			break;
 		case "commands":
 			didCommand = true;
-			document.sendMessage(user + ': I\'m fluent in the following phrases: about, appeal, email, reddit, plugdj, ping, mute, unmute, ban, unban');
+			document.sendMessage(user + ': I\'m fluent in the following phrases: about, appeal, email, stuck, reddit, plugdj, ping, mute, unmute, ban, unban');
 			break;
 		case "plugdj":
 			didCommand = true;
