@@ -43,19 +43,19 @@ document.userIsOwner = function(userTag) {
 	if(userTag.text().toLowerCase() == 'humusthewalls' ||
 	userTag.text().toLowerCase() == 'eefuh') return true;
 	return false;
-}
+};
 
 document.userIsAdmin = function(userTag) {
 	var span = userTag.find('span');
 	if(span.attr('class') == 'style3') return true;
 	return false;
-}
+};
 
 document.userIsHCFAdmin = function(userTag) {
 	var span = userTag.find('span');
 	if(span.attr('class') == 'style43') return true;
 	return false;
-}
+};
 
 document.sayBanAppeal = function(userName) {
 	document.sendMessage(userName + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]');
@@ -64,7 +64,7 @@ document.sayBanAppeal = function(userName) {
 
 document.sayHackerReport = function(userName) {
 	document.sendMessage(userName + 'If you need to report a player for hacking, use [URL=http://shotbow.net/forum/threads/2137/]this wonderful hand gadget![/URL] Otherwise, please do not advertise hackusations in chat.')
-}
+};
 
 document.sayReddit = function() {
 	document.sendMessage('Have you seen [URL=http://reddit.com/r/minez]the MineZ subbreddit[/URL] recently?');
@@ -76,11 +76,11 @@ document.sayEmail = function(userName) {
 
 document.sayColor = function(userName) {
 	document.sendMessage(userName + 'The colors of usernames in chat denote the donor/rank of the user. Light Orange = default user, Grey = silver member, Yellow = gold member, Cyan = platinum member, Green = emerald member, Purple = obsidian member, Red = website staff, and Dark Orange = admins.')
-}
+};
 
 document.sayStuck = function(userName) {
 	document.sendMessage(userName + 'If you\'re stuck in a block and need an admin to TP you out, just post in [URL=http://shotbow.net/forum/threads/15016/]the Stuck Thread[/URL]. An admin will unstuck you soon!');
-}
+};
 
 document.sayPlugDj = function() {
 	document.sendMessage('Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]!')
@@ -88,7 +88,7 @@ document.sayPlugDj = function() {
 
 document.sayPing = function() {
 	document.sendMessage(document.pingMessages[Math.floor(Math.random()*7)]);
-}
+};
  
 document.parseCommands = function(e) {
 	var userTag = e.find('.username').clone();
