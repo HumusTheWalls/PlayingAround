@@ -36,7 +36,6 @@ document.botHasPermission = function(userTag) {
 	if(document.userIsAdmin(userTag)) return true;
 	if(document.userIsHCFAdmin(userTag)) return true;
 	return false;
-	};
 };
 
 document.userIsOwner = function(userTag) {
