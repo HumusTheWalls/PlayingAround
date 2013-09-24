@@ -39,6 +39,23 @@ document.botHasPermission = function(userTag) {
 	return false;
 	};
 };
+
+document.sayBanAppeal(userName) {
+	document.sendMessage(userName + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]');
+
+}
+
+document.sayReddit() {
+	document.sendMessage('Have you seen [URL=http://reddit.com/r/minez]the MineZ subbreddit[/URL] recently?');
+}
+
+document.sayEmail(userName) {
+	document.sendMessage(userName + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. [noparse]minezmod@gmail.com[/noparse]');
+}
+
+document.sayPlugDj() {
+	document.sendMessage('Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]!')
+}
  
 document.parseCommands = function(e) {
 	var userTag = e.find('.username').clone();
@@ -60,11 +77,11 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			var t = '';
 			if(toks.length > 1) var t = toks[2] + ': ';
-			document.sendMessage(t + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]');
+			sayBanAppeal(t);
 			break;
 		case "reddit":
 			didCommand = true;
-			document.sendMessage('Have you seen [URL=http://reddit.com/r/minez]the MineZ subbreddit[/URL] recently?');
+			sayReddit();
 			break;
 		case "about":
 			didCommand = true;
@@ -74,7 +91,7 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			var t = '';
 			if(toks.length > 1) var t = toks[2] + ': ';
-			document.sendMessage(t + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. [noparse]minezmod@gmail.com[/noparse]');
+			sayEmail(t);
 			break;
 		case "time":
 			didCommand = true;
@@ -87,7 +104,7 @@ document.parseCommands = function(e) {
 			break;
 		case "plugdj":
 			didCommand = true;
-			document.sendMessage('Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]!')
+			sayPlugDj();
 			break;
 		case "ping":
 			didCommand = true;
@@ -163,6 +180,7 @@ document.parseCommands = function(e) {
 		};
 		t = d = null;
 	}
+	
 	 
 	// Clear Variables
 	nToks = toks = u = d = msg = lUser = user = type = null;
