@@ -83,7 +83,11 @@ document.parseCommands = function(e) {
 			break;
 		case "commands":
 			didCommand = true;
-			document.sendMessage(user + ': I\'m fluent in the following phrases: about, appeal, email, reddit, ping, mute, unmute, ban, unban');
+			document.sendMessage(user + ': I\'m fluent in the following phrases: about, appeal, email, reddit, plugdj, ping, mute, unmute, ban, unban');
+			break;
+		case "plugdj":
+			didCommand = true;
+			document.sendMessage('Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]!')
 			break;
 		case "ping":
 			didCommand = true;
