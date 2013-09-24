@@ -23,7 +23,7 @@ document.botMuted = false;
 
 document.botSleeping = false;
  
-document.banned = {};
+document.ignored = {};
  
 document.abuse = {};
 
@@ -102,7 +102,7 @@ document.parseCommands = function(e) {
 	var toks = msg.split(" ");
 	if(document.botSleeping && user != 'HumusTheWalls' && user != 'Eefuh') return;
 	if(document.botMuted && !document.botHasPermission(userTag)) return;
-	if(document.banned[lUser] && lUser != 'humusthewalls') return;
+	if(document.ignored[lUser] && lUser != 'humusthewalls') return;
 	var didCommand = false;
 	if(toks[0]=="HTB")
 	switch(toks[1].toLowerCase()) {
@@ -204,7 +204,7 @@ document.parseCommands = function(e) {
 				document.sendMessage('/me wakes groggily from his slumber.');
 			}
 			break;
-		case "ban":
+		case "ignore":
 			didCommand = true;
 			if(!document.botHasPermission(userTag)) {
 			document.sendMessage(user + ': You\'re not important enough to do this.');
@@ -220,13 +220,13 @@ document.parseCommands = function(e) {
 			var u = nToks.join(" ");
 			if(u != 'HumusTheWalls' &&
 			u != 'Eefuh') {
-				document.banned[u.toLowerCase()] = true;
+				document.ignored[u.toLowerCase()] = true;
 				document.sendMessage(u + ' is a ninny-maumfer and I don\'t listen to them anymore.');
 			} else {
 				document.sendMessage('No. No, no, no. You can\'t go banning me all willy-nilly.');
 			}
 			break;
-		case "unban":
+		case "unignore":
 			didCommand = true;
 			if(!document.botHasPermission(userTag)) {
 			document.sendMessage(user + ': You\'re not important enough to do this.');
@@ -240,7 +240,7 @@ document.parseCommands = function(e) {
 			nToks.shift();
 			nToks.shift();
 			var u = nToks.join(" ");
-			document.banned[u.toLowerCase()] = false;
+			document.ignored[u.toLowerCase()] = false;
 			document.sendMessage(u + ' may be more interesting than I thought, and I will be listening to them again.');
 			break;
 			
