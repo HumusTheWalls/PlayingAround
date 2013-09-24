@@ -62,6 +62,10 @@ document.sayBanAppeal = function(userName) {
 
 };
 
+document.sayHackerReport = function(userName) {
+	document.sendMessage(userName + 'If you need to report a player for hacking, use [URL=http://shotbow.net/forum/threads/2137/]this wonderful hand gadget![/URL] Otherwise, please do not advertise hackusations in chat.')
+}
+
 document.sayReddit = function() {
 	document.sendMessage('Have you seen [URL=http://reddit.com/r/minez]the MineZ subbreddit[/URL] recently?');
 };
@@ -108,6 +112,12 @@ document.parseCommands = function(e) {
 			var t = '';
 			if(toks.length > 2) var t = toks[3] + ': ';
 			document.sayBanAppeal(t);
+			break;
+		case "hacker":
+			didCommand = true;
+			var t = '';
+			if(toks.length > 2) var t = toks[3] + ': ';
+			document.sayHackerReport(t);
 			break;
 		case "reddit":
 			didCommand = true;
