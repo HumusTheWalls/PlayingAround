@@ -132,9 +132,14 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			document.sayReddit();
 			break;
+		case "?":
+		case "help":
 		case "about":
 			didCommand = true;
 			document.sendMessage('Hello! I\'m a sassy scriptbot written by Navarr and given attitude by HumusTheWalls with the intention of brightening this shoutbox. You can read Navarr\'s sourcecode at [url=https://gist.github.com/4528369]github[/url]!');
+		case "commands":
+			didCommand = true;
+			document.sendMessage(user + ': I\'m fluent in the following phrases: about, commands, appeal, hacker, bug, email, stuck, color, reddit, plugdj');
 			break;
 		case "email":
 			didCommand = true;
@@ -158,10 +163,6 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			var d = new Date;
 			document.sendMessage(user + ': It\'s ' + d.getHours() + ':' + d.getMinutes() + '.');
-			break;
-		case "commands":
-			didCommand = true;
-			document.sendMessage(user + ': I\'m fluent in the following phrases: about, commands, appeal, hacker, bug, email, stuck, color, reddit, plugdj');
 			break;
 		case "plugdj":
 			didCommand = true;
