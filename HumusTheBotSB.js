@@ -52,7 +52,7 @@ document.parseCommands = function(e) {
 	switch(toks[0].toLowerCase()) {
 		case "&hi":
 			didCommand = true;
-			document.sendMessage(user + ': Meow desu! :3');
+			document.sendMessage('Hi ' + user + '!');
 			break;
 		case "&appeal":
 			didCommand = true;
