@@ -24,6 +24,8 @@ document.botMuted = false;
 document.banned = {};
  
 document.abuse = {};
+
+document.pingMessages = {'!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie'};
  
 document.botHasPermission = function(userTag) {
 	if(userTag.text().toLowerCase() == 'humusthewalls' ||
@@ -64,6 +66,10 @@ document.sayStuck = function(userName) {
 document.sayPlugDj = function() {
 	document.sendMessage('Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]!')
 };
+
+document.sayPing = function() {
+	document.sendMessage(pingMessages[Math.floor(Math.random()*7)]);
+}
  
 document.parseCommands = function(e) {
 	var userTag = e.find('.username').clone();
@@ -128,7 +134,7 @@ document.parseCommands = function(e) {
 			break;
 		case "ping":
 			didCommand = true;
-			document.sendMessage('!pong');
+			document.sayPing();
 			break;
 		case "mute":
 			didCommand = true;
