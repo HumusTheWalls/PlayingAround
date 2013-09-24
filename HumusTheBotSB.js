@@ -198,7 +198,7 @@ document.parseCommands = function(e) {
 			
 		case "<3":
 			didCommand = true;
-			document.sendMessage('<3 you ' + toks[3] + '!');
+			document.sendMessage('<3 you ' + toks[2] + '!');
 			break;
 		default:
 			break;
