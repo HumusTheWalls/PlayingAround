@@ -26,7 +26,8 @@ document.banned = {};
 document.abuse = {};
  
 document.botHasPermission = function(userTag) {
-	if(userTag.text().toLowerCase() == 'humusthewalls') return true;
+	if(userTag.text().toLowerCase() == 'humusthewalls' ||
+	userTag.text().toLowerCase() == 'eefuh') return true;
 	var span = userTag.find('span');
 	switch (span.attr('class')) {
 	case 'style3': // admin
