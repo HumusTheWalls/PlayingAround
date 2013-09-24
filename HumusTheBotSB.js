@@ -25,6 +25,8 @@ document.banned = {};
  
 document.abuse = {};
 
+document.antiWall = {};
+
 document.pingMessages = new Array('!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie');
  
 document.botHasPermission = function(userTag) {
@@ -217,6 +219,17 @@ document.parseCommands = function(e) {
 		t = d = null;
 	}
 	
+	var wallType = userTag.find('span').attr('class');
+	if(antiWall[wallType] != 0) {
+		if(antiWall[wallType] < 20) {
+			document.sendMessage('C-C-C-Combo Breaker!');
+			antiWall = {};
+		}
+		antiWall[wallType]++;
+	} else {
+		antiWall = {};
+		antiWall[wallType] = 1;
+	}
 	 
 	// Clear Variables
 	nToks = toks = u = d = msg = lUser = user = type = null;
