@@ -76,7 +76,7 @@ document.parseCommands = function(e) {
 		case "appeal":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 1) var t = toks[2] + ': ';
+			if(toks.length > 2) var t = toks[3] + ': ';
 			document.sayBanAppeal(t);
 			break;
 		case "reddit":
@@ -90,7 +90,7 @@ document.parseCommands = function(e) {
 		case "email":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 1) var t = toks[2] + ': ';
+			if(toks.length > 2) var t = toks[3] + ': ';
 			document.sayEmail(t);
 			break;
 		case "time":
