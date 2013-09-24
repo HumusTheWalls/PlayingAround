@@ -65,30 +65,30 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			document.sendMessage('Have you seen [url=http://reddit.com/r/minez]our awesome subreddit at http://reddit.com/r/minez[/url]?');
 			break;
-		case "&about":
+		case "about":
 			didCommand = true;
 			document.sendMessage('Hello! I\'m a sassy scriptbot written by Navarr and given attitude by HumusTheWalls with the intention of brightening this shoutbox. You can read Navarr\'s sourcecode at [url=https://gist.github.com/4528369]github[/url]!');
 			break;
-		case "&email":
+		case "email":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 1) var t = toks[2] + ': ';
 			document.sendMessage(t + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. [noparse]minezmod@gmail.com[/noparse]');
 			break;
-		case "&time":
+		case "time":
 			didCommand = true;
 			var d = new Date;
 			document.sendMessage(user + ': It\'s ' + d.getHours() + ':' + d.getMinutes() + '.');
 			break;
-		case "&commands":
+		case "commands":
 			didCommand = true;
 			document.sendMessage(user + ': I\'m fluent in the following phrases: &about, &appeal, &email, &reddit, &ping, &mute, &unmute, &ban, &unban');
 			break;
-		case "&ping":
+		case "ping":
 			didCommand = true;
 			document.sendMessage('!pong');
 			break;
-		case "&mute":
+		case "mute":
 			didCommand = true;
 			if(document.botMuted) {
 			document.sendMessage('HumusTheBot isn\'t here right now. Please leave a message after the ADJESKVE.');
@@ -99,7 +99,7 @@ document.parseCommands = function(e) {
 			document.sendMessage('You have no power here, ' + user + ' Stormcrow!');
 			}
 			break;
-		case "&unmute":
+		case "unmute":
 			didCommand = true;
 			if(!document.botMuted) {
 			document.sendMessage('Hey! I\'m right here!');
@@ -108,7 +108,7 @@ document.parseCommands = function(e) {
 			document.sendMessage('/me wakes from his slumber.');
 			}
 			break;
-		case "&ban":
+		case "ban":
 			didCommand = true;
 			if(!document.botHasPermission(userTag)) {
 			document.sendMessage(user + ': You\'re not important enough to do this.');
@@ -124,7 +124,7 @@ document.parseCommands = function(e) {
 			document.banned[u.toLowerCase()] = true;
 			document.sendMessage(u + ' is a ninny-maumfer and I don\'t listen to them anymore.');
 			break;
-		case "&unban":
+		case "unban":
 			didCommand = true;
 			if(!document.botHasPermission(userTag)) {
 			document.sendMessage(user + ': You\'re not important enough to do this.T');
