@@ -166,12 +166,15 @@ document.parseCommands = function(e) {
 			document.sendMessage(user + ': I don\'t know who you\'re talking about. Please include the user\'s name.');
 			break;
 			}
-			var nToks = toks;
-			nToks.shift();
-			nToks.shift();
-			var u = nToks.join(" ");
-			document.banned[u.toLowerCase()] = true;
-			document.sendMessage(u + ' is a ninny-maumfer and I don\'t listen to them anymore.');
+			if(user != 'HumusTheWalls' &&
+			user != 'Eefuh') {
+				var nToks = toks;
+				nToks.shift();
+				nToks.shift();
+				var u = nToks.join(" ");
+				document.banned[u.toLowerCase()] = true;
+				document.sendMessage(u + ' is a ninny-maumfer and I don\'t listen to them anymore.');
+			]
 			break;
 		case "unban":
 			didCommand = true;
