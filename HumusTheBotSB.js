@@ -161,7 +161,7 @@ document.parseCommands = function(e) {
 			break;
 		case "commands":
 			didCommand = true;
-			document.sendMessage(user + ': I\'m fluent in the following phrases: about, appeal, email, stuck, color, reddit, plugdj, ping, mute, unmute, ban, unban');
+			document.sendMessage(user + ': I\'m fluent in the following phrases: about, commands, appeal, hacker, bug, email, stuck, color, reddit, plugdj');
 			break;
 		case "plugdj":
 			didCommand = true;
