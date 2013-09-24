@@ -113,19 +113,19 @@ document.parseCommands = function(e) {
 		case "appeal":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 2) var t = toks[3] + ': ';
+			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayBanAppeal(t);
 			break;
 		case "hacker":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 2) var t = toks[3] + ': ';
+			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayHackerReport(t);
 			break;
 		case "bug":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 2) var t = toks[3] + ': ';
+			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayBugReport(t);
 			break;
 		case "reddit":
@@ -144,19 +144,19 @@ document.parseCommands = function(e) {
 		case "email":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 2) var t = toks[3] + ': ';
+			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayEmail(t);
 			break;
 		case "color":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 2) var t = toks[3] + ': ';
+			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayColor(t);
 			break;
 		case "stuck":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 2) var t = toks[3] + ': ';
+			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayStuck(t);
 			break;
 		case "time":
