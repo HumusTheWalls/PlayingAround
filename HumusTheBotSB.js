@@ -1,7 +1,7 @@
 document.sendMessage = function(msg) {
 	var e = $('#taigachat_message');
 	var t = e.val();
-	e.val(msg);
+	e.val('/me ' + msg);
 	$('#taigachat_send').click();
 	e.val(t);
 	// Clear Variables?
@@ -199,19 +199,19 @@ document.parseCommands = function(e) {
 			document.sendMessage('Hey! I\'m right here!');
 			} else if(document.botHasPermission(userTag)) {
 			document.botMuted = false;
-			document.sendMessage('/me wakes from his slumber.');
+			document.sendMessage('wakes from his slumber.');
 			}
 			break;
 		case "sleep":
 			if(document.userIsOwner(userTag)) {
 				document.botSleeping = true;
-				document.sendMessage('/me is entering a deep sleep. zZzZz');
+				document.sendMessage('is entering a deep sleep. zZzZz');
 			}
 			break;
 		case "wake":
 			if(document.userIsOwner(userTag)) {
 				document.botSleeping = false;
-				document.sendMessage('/me wakes groggily from his slumber.');
+				document.sendMessage('wakes groggily from his slumber.');
 			}
 			break;
 		case "ignore":
