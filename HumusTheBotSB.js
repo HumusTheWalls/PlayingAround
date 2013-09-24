@@ -25,7 +25,7 @@ document.banned = {};
  
 document.abuse = {};
 
-document.pingMessages = {'!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie'};
+document.pingMessages = new Array('!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie');
  
 document.botHasPermission = function(userTag) {
 	if(userTag.text().toLowerCase() == 'humusthewalls' ||
