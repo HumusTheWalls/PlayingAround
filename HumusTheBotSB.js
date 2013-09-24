@@ -195,6 +195,11 @@ document.parseCommands = function(e) {
 			document.banned[u.toLowerCase()] = false;
 			document.sendMessage(u + ' may be more interesting than I thought, and I will be listening to them again.');
 			break;
+			
+		case "<3":
+			didCommand = true;
+			document.sendMessage('<3 you ' + user + '!');
+			break;
 		default:
 			break;
 	};
