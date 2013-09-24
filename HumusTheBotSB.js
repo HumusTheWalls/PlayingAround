@@ -68,7 +68,7 @@ document.sayPlugDj = function() {
 };
 
 document.sayPing = function() {
-	document.sendMessage(pingMessages[Math.floor(Math.random()*7)]);
+	document.sendMessage(document.pingMessages[Math.floor(Math.random()*7)]);
 }
  
 document.parseCommands = function(e) {
