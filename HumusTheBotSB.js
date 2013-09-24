@@ -49,18 +49,19 @@ document.parseCommands = function(e) {
 	if(document.botMuted && !document.botHasPermission(userTag)) return;
 	if(document.banned[lUser] && lUser != 'humusthewalls') return;
 	var didCommand = false;
-	switch(toks[0].toLowerCase()) {
-		case "&hi":
+	if(toks[0]=='HTB')
+	switch(toks[1].toLowerCase()) {
+		case "hi":
 			didCommand = true;
 			document.sendMessage('Hi ' + user + '!');
 			break;
-		case "&appeal":
+		case "appeal":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 1) var t = toks[1] + ': ';
 			document.sendMessage(t + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: http://shotbow.net/forum/threads/23560/');
 			break;
-		case "&reddit":
+		case "reddit":
 			didCommand = true;
 			document.sendMessage('Have you seen [url=http://reddit.com/r/minez]our awesome subreddit at http://reddit.com/r/minez[/url]?');
 			break;
