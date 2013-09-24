@@ -29,6 +29,18 @@ document.abuse = {};
 
 document.antiWall = {};
 
+document.msgsBanAppeal = new Array(	'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]',
+					'Disscusing bans in chat is the leading cause of kitten deaths each year. Have a heart, save a kitten, keep ban talk out of chat. If you need to appeal, use [URL=http://shotbow.net/forum/threads/23560/]this handy guide[/URL] made by the admins.',
+					'I used to discuss bans in chat like you. Then I took a chat-ban to the knee. Learn from my mistakes, and keep ban talk in [URL=http://shotbow.net/forum/threads/23560/]the appropriate forum.[/URL]');
+
+document.msgsHackerReport = new Array(	'If you need to report a player for hacking, use [URL=http://shotbow.net/forum/threads/23572/]this sketchy umbrella![/URL] If it is not raining in the shoutbox, please refrain from advertising hacusations here.',
+					'Feel free to [URL=http://shotbow.net/forum/threads/23572/]report someone who might be hacking[/URL], but leave it to the admins to determine guilt. They have black magic and voodoo to help them see the truth. What do you have, eyes? Pffft.',
+					'Hackers ruin everyones\' days. [URL=http://shotbow.net/forum/threads/23572/]Report them here[/URL] to earn a free non-existant plushy! *Note: non-existant plushy not guaranteed to exist.');
+
+document.msgsBugReport = new Array(	'If you need to report a bug or exploit, use [URL=http://shotbow.net/forum/threads/2137/]this wonderful hand gadget![/URL] *Hand gadget now available in hot pink!',
+					'I derped.');
+
+
 document.pingMessages = new Array('!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie');
  
 document.botHasPermission = function(userTag) {
@@ -57,17 +69,15 @@ document.userIsHCFAdmin = function(userTag) {
 };
 
 document.sayBanAppeal = function(userName) {
-	document.sendMessage(userName + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]');
-
+	document.sendMessage(userName + document.msgsBanAppeal[Math.floor(Math.random()*document.msgsBanAppeal.length)]);
 };
 
 document.sayHackerReport = function(userName) {
-	document.sendMessage(userName + 'If you need to report a player for hacking, use [URL=http://shotbow.net/forum/threads/23572/]this sketchy umbrella![/URL] If it is not raining in the shoutbox, please refrain from advertising hacusations here.');
+	document.sendMessage(userName + document.msgsHackerReport[Math.floor(Math.random()*document.msgsHackerReport.length)]);
 };
 
 document.sayBugReport = function(userName) {
-	document.sendMessage(userName + 'If you need to report a bug or exploit, use [URL=http://shotbow.net/forum/threads/2137/]this wonderful hand gadget![/URL] *Hand gadget now available in hot pink!');
-};
+	document.sendMessage(userName + document.msgsBugReport[Math.floor(Math.random()*document.msgsButReport.length)]);};
 
 document.sayReddit = function() {
 	document.sendMessage('Have you seen [URL=http://reddit.com/r/minez]the MineZ subbreddit[/URL] recently?');
@@ -90,7 +100,7 @@ document.sayPlugDj = function() {
 };
 
 document.sayPing = function() {
-	document.sendMessage(document.pingMessages[Math.floor(Math.random()*7)]);
+	document.sendMessage(document.pingMessages[Math.floor(Math.random()*document.pingMessages.length)]);
 };
  
 document.parseCommands = function(e) {
