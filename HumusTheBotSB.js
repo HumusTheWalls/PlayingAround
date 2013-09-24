@@ -82,7 +82,7 @@ document.parseCommands = function(e) {
 			break;
 		case "commands":
 			didCommand = true;
-			document.sendMessage(user + ': I\'m fluent in the following phrases: &about, &appeal, &email, &reddit, &ping, &mute, &unmute, &ban, &unban');
+			document.sendMessage(user + ': I\'m fluent in the following phrases: about, appeal, email, reddit, ping, mute, unmute, ban, unban');
 			break;
 		case "ping":
 			didCommand = true;
