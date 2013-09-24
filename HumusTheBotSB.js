@@ -20,6 +20,8 @@ document.testInt = setInterval(function() {
 },1000);
  
 document.botMuted = false;
+
+document.botSleeping = false;
  
 document.banned = {};
  
@@ -80,6 +82,7 @@ document.parseCommands = function(e) {
 	var lUser = user.toLowerCase();
 	var msg = e.find('.taigachat_messagetext').text().trim();
 	var toks = msg.split(" ");
+	if(document.botSleeping && user != 'HumusTheWalls' && user != 'Eefuh') return;
 	if(document.botMuted && !document.botHasPermission(userTag)) return;
 	if(document.banned[lUser] && lUser != 'humusthewalls') return;
 	var didCommand = false;
@@ -156,6 +159,20 @@ document.parseCommands = function(e) {
 			} else if(document.botHasPermission(userTag)) {
 			document.botMuted = false;
 			document.sendMessage('/me wakes from his slumber.');
+			}
+			break;
+		case "sleep":
+			if(user == 'HumusTheWalls' ||
+			user == 'Eefuh') {
+				document.botSleeping = true;
+				document.sendMessage('/me is entering a deep sleep. zZzZz');
+			}
+			break;
+		case "wake":
+			if(user == 'HumusTheWalls' ||
+			user == 'Eefuh') {
+				document.botSleeping = false;
+				document.sendMessage('/me wakes groggily from his slumber.');
 			}
 			break;
 		case "ban":
