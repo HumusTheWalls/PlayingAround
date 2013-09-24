@@ -77,11 +77,11 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			var t = '';
 			if(toks.length > 1) var t = toks[2] + ': ';
-			sayBanAppeal(t);
+			document.sayBanAppeal(t);
 			break;
 		case "reddit":
 			didCommand = true;
-			sayReddit();
+			document.sayReddit();
 			break;
 		case "about":
 			didCommand = true;
@@ -91,7 +91,7 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			var t = '';
 			if(toks.length > 1) var t = toks[2] + ': ';
-			sayEmail(t);
+			document.sayEmail(t);
 			break;
 		case "time":
 			didCommand = true;
@@ -104,7 +104,7 @@ document.parseCommands = function(e) {
 			break;
 		case "plugdj":
 			didCommand = true;
-			sayPlugDj();
+			document.sayPlugDj();
 			break;
 		case "ping":
 			didCommand = true;
