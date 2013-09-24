@@ -53,6 +53,10 @@ document.sayEmail = function(userName) {
 	document.sendMessage(userName + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. [noparse]minezmod@gmail.com[/noparse]');
 };
 
+document.sayColor = function(userName) {
+	document.sendMessage(userName + 'The colors of usernames in chat denote the donor/rank of the user. Light Orange = default user, Grey = silver member, Yellow = gold member, Cyan = platinum member, Green = emerald member, Purple = obsidian member, Red = website staff, and Dark Orange = admins.')
+}
+
 document.sayStuck = function(userName) {
 	document.sendMessage(userName + 'If you\'re stuck in a block and need an admin to TP you out, just post in [URL=http://shotbow.net/forum/threads/15016/]the Stuck Thread[/URL]. An admin will unstuck you soon!');
 }
@@ -96,6 +100,12 @@ document.parseCommands = function(e) {
 			var t = '';
 			if(toks.length > 2) var t = toks[3] + ': ';
 			document.sayEmail(t);
+			break;
+		case "color":
+			didCommand = true;
+			var t = '';
+			if(toks.length > 2) var t = toks[3] + ': ';
+			document.sayColor(t);
 			break;
 		case "stuck":
 			didCommand = true;
