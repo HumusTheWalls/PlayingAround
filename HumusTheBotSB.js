@@ -220,15 +220,15 @@ document.parseCommands = function(e) {
 	}
 	
 	var wallType = userTag.find('span').attr('class');
-	if(antiWall[wallType] != 0) {
-		if(antiWall[wallType] < 20) {
+	if(document.antiWall[wallType] != 0) {
+		if(document.antiWall[wallType] < 20) {
 			document.sendMessage('C-C-C-Combo Breaker!');
-			antiWall = {};
+			document.antiWall = {};
 		}
-		antiWall[wallType]++;
+		document.antiWall[wallType]++;
 	} else {
-		antiWall = {};
-		antiWall[wallType] = 1;
+		document.antiWall = {};
+		document.antiWall[wallType] = 1;
 	}
 	 
 	// Clear Variables
