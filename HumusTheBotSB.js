@@ -123,7 +123,7 @@ document.parseCommands = function(e) {
 			document.banned[u.toLowerCase()] = true;
 			document.sendMessage(u + ' is a ninny-maumfer and I don\'t listen to them anymore.');
 			break;
-		case "!unban":
+		case "&unban":
 			didCommand = true;
 			if(!document.botHasPermission(userTag)) {
 			document.sendMessage(user + ': You\'re not important enough to do this.T');
