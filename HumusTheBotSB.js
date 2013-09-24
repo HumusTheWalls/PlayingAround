@@ -49,7 +49,7 @@ document.parseCommands = function(e) {
 	if(document.botMuted && !document.botHasPermission(userTag)) return;
 	if(document.banned[lUser] && lUser != 'humusthewalls') return;
 	var didCommand = false;
-	if(toks[0]=='HTB')
+	if(toks[0]=="HTB")
 	switch(toks[1].toLowerCase()) {
 		case "hi":
 			didCommand = true;
@@ -58,7 +58,7 @@ document.parseCommands = function(e) {
 		case "appeal":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 1) var t = toks[1] + ': ';
+			if(toks.length > 1) var t = toks[2] + ': ';
 			document.sendMessage(t + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: http://shotbow.net/forum/threads/23560/');
 			break;
 		case "reddit":
@@ -72,7 +72,7 @@ document.parseCommands = function(e) {
 		case "&email":
 			didCommand = true;
 			var t = '';
-			if(toks.length > 1) var t = toks[1] + ': ';
+			if(toks.length > 1) var t = toks[2] + ': ';
 			document.sendMessage(t + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. [noparse]minezmod@gmail.com[/noparse]');
 			break;
 		case "&time":
@@ -114,7 +114,7 @@ document.parseCommands = function(e) {
 			document.sendMessage(user + ': You\'re not important enough to do this.');
 			break;
 			}
-			if(toks.length < 2) {
+			if(toks.length < 3) {
 			document.sendMessage(user + ': I don\'t know who you\'re talking about. Please include the user\'s name.');
 			break;
 			}
@@ -130,7 +130,7 @@ document.parseCommands = function(e) {
 			document.sendMessage(user + ': You\'re not important enough to do this.T');
 			break;
 			}
-			if(toks.length < 2) {
+			if(toks.length < 3) {
 			document.sendMessage(user + ': I don\'t know who you\'re talking about. Please include the user\'s name.');
 			break;
 			}
