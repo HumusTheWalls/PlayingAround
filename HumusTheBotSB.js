@@ -62,7 +62,11 @@ document.sayBanAppeal = function(userName) {
 };
 
 document.sayHackerReport = function(userName) {
-	document.sendMessage(userName + 'If you need to report a player for hacking, use [URL=http://shotbow.net/forum/threads/2137/]this wonderful hand gadget![/URL] Otherwise, please do not advertise hackusations in chat.')
+	document.sendMessage(userName + 'If you need to report a player for hacking, use [URL=http://shotbow.net/forum/threads/23572/]this sketchy umbrella![/URL] If it is not raining in the shoutbox, please refrain from advertising hacusations here.');
+};
+
+document.sayBugReport = function(userName) {
+	document.sendMessage(userName + 'If you need to report a bug or exploit, use [URL=http://shotbow.net/forum/threads/2137/]this wonderful hand gadget![/URL] *Hand gadget now available in hot pink!');
 };
 
 document.sayReddit = function() {
@@ -117,6 +121,12 @@ document.parseCommands = function(e) {
 			var t = '';
 			if(toks.length > 2) var t = toks[3] + ': ';
 			document.sayHackerReport(t);
+			break;
+		case "bug":
+			didCommand = true;
+			var t = '';
+			if(toks.length > 2) var t = toks[3] + ': ';
+			document.sayBugReport(t);
 			break;
 		case "reddit":
 			didCommand = true;
