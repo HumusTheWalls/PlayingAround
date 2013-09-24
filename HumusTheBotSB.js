@@ -60,11 +60,11 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			var t = '';
 			if(toks.length > 1) var t = toks[2] + ': ';
-			document.sendMessage(t + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: http://shotbow.net/forum/threads/23560/');
+			document.sendMessage(t + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]');
 			break;
 		case "reddit":
 			didCommand = true;
-			document.sendMessage('Have you seen [url=http://reddit.com/r/minez]our awesome subreddit at http://reddit.com/r/minez[/url]?');
+			document.sendMessage('Have you seen [URL=http://reddit.com/r/minez]the MineZ subbreddit[/URL] recently?');
 			break;
 		case "about":
 			didCommand = true;
