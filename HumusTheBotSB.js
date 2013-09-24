@@ -32,19 +32,30 @@ document.antiWall = {};
 document.pingMessages = new Array('!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie');
  
 document.botHasPermission = function(userTag) {
-	if(userTag.text().toLowerCase() == 'humusthewalls' ||
-	userTag.text().toLowerCase() == 'eefuh') return true;
-	var span = userTag.find('span');
-	switch (span.attr('class')) {
-	case 'style3': // admin
-	//case 'style22': // emerald
-	//case 'style25': // obsidian
-	case 'style43': // HCF Admin
-	return true;
-	default:
+	if(document.userIsOwner(userTag)) return true;
+	if(document.userIsAdmin(userTag)) return true;
+	if(document.userIsHCFAdmin(userTag)) return true;
 	return false;
 	};
 };
+
+document.userIsOwner = function(userTag) {
+	if(userTag.text().toLowerCase() == 'humusthewalls' ||
+	userTag.text().toLowerCase() == 'eefuh') return true;
+	return false;
+}
+
+document.userIsAdmin = function(userTag) {
+	var span = userTag.find('span');
+	if(span.attr('class') == 'style3') return true;
+	return false;
+}
+
+document.userIsHCFAdmin = function(userTag) {
+	var span = userTag.find('span');
+	if(span.attr('class') == 'style43') return true;
+	return false;
+}
 
 document.sayBanAppeal = function(userName) {
 	document.sendMessage(userName + 'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]');
@@ -162,15 +173,13 @@ document.parseCommands = function(e) {
 			}
 			break;
 		case "sleep":
-			if(user == 'HumusTheWalls' ||
-			user == 'Eefuh') {
+			if(document.userIsOwner(userTag)) {
 				document.botSleeping = true;
 				document.sendMessage('/me is entering a deep sleep. zZzZz');
 			}
 			break;
 		case "wake":
-			if(user == 'HumusTheWalls' ||
-			user == 'Eefuh') {
+			if(document.userIsOwner(userTag)) {
 				document.botSleeping = false;
 				document.sendMessage('/me wakes groggily from his slumber.');
 			}
