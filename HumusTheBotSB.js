@@ -50,7 +50,7 @@ document.sayReddit = function() {
 };
 
 document.sayEmail = function(userName) {
-	document.sendMessage(userName + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. [noparse]minezmod@gmail.com[/noparse]');
+	document.sendMessage(userName + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. minezmod@gmail.com');
 };
 
 document.sayColor = function(userName) {
