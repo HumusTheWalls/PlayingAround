@@ -232,31 +232,39 @@ document.parseCommands = function(e) {
 		case "mute":
 			didCommand = true;
 			if(document.botMuted) {
-			document.sendMessage('HumusTheBot isn\'t here right now. Please leave a message after the ADJESKVE.');
+				document.sendMessage('HumusTheBot isn\'t here right now. Please leave a message after the ADJESKVE.');
 			} else if(document.botHasPermission(userTag)) {
-			document.botMuted = true;
-			document.sendMessage('Ok. I\'ll shut up now.');
+				document.botMuted = true;
+				document.sendMessage('Ok. I\'ll shut up now.');
 			} else {
-			document.sendMessage('You have no power here, ' + user + ' Stormcrow!');
+				document.sendMessage('You have no power here, ' + user + ' Stormcrow!');
 			}
 			break;
 		case "unmute":
 			didCommand = true;
 			if(!document.botMuted) {
-			document.sendMessage('Hey! I\'m right here!');
+				document.sendMessage('Hey! I\'m right here!');
 			} else if(document.botHasPermission(userTag)) {
-			document.botMuted = false;
-			document.sendMessage('wakes from his slumber.');
+				document.botMuted = false;
+				document.sendMessage('wakes from his slumber.');
 			}
 			break;
 		case "sleep":
 			if(document.userIsOwner(userTag)) {
+				if(document.botSleeping == true) {
+				document.sendMessage('zZzZzz...');
+				break;
+				}
 				document.botSleeping = true;
 				document.sendMessage('is entering a deep sleep. zZzZz');
 			}
 			break;
 		case "wake":
 			if(document.userIsOwner(userTag)) {
+				if(document.botSleeping == false) {
+				document.sendMessage('Hey! That tickles!');
+				break;
+				}
 				document.botSleeping = false;
 				document.sendMessage('wakes groggily from his slumber.');
 			}
@@ -264,12 +272,12 @@ document.parseCommands = function(e) {
 		case "ignore":
 			didCommand = true;
 			if(!document.botHasPermission(userTag)) {
-			document.sendMessage(user + ': You\'re not important enough to do this.');
-			break;
+				document.sendMessage(user + ': You\'re not important enough to do this.');
+				break;
 			}
 			if(toks.length < 3) {
-			document.sendMessage(user + ': I don\'t know who you\'re talking about. Please include the user\'s name.');
-			break;
+				document.sendMessage(user + ': I don\'t know who you\'re talking about. Please include the user\'s name.');
+				break;
 			}
 			var nToks = toks;
 			nToks.shift();
@@ -280,18 +288,18 @@ document.parseCommands = function(e) {
 				document.ignored[u.toLowerCase()] = true;
 				document.sendMessage(u + ' is a ninny-maumfer and I don\'t listen to them anymore.');
 			} else {
-				document.sendMessage('No. No, no, no. You can\'t go banning me all willy-nilly.');
+				document.sendMessage('No. No, no, no. You can\'t go ignoring me all willy-nilly.');
 			}
 			break;
 		case "unignore":
 			didCommand = true;
 			if(!document.botHasPermission(userTag)) {
-			document.sendMessage(user + ': You\'re not important enough to do this.');
-			break;
+				document.sendMessage(user + ': You\'re not important enough to do this.');
+				break;
 			}
 			if(toks.length < 3) {
-			document.sendMessage(user + ': I don\'t know who you\'re talking about. Please include the user\'s name.');
-			break;
+				document.sendMessage(user + ': I don\'t know who you\'re talking about. Please include the user\'s name.');
+				break;
 			}
 			var nToks = toks;
 			nToks.shift();
@@ -303,24 +311,24 @@ document.parseCommands = function(e) {
 		case "permission":
 			didCommand = true;
 			if(!document.userIsOwner(userTag)) {
-			document.sendMessage('I\'m sorry, ' + user + ', I can\'t let you do that.');
-			break;
+				document.sendMessage('I\'m sorry, ' + user + ', I can\'t let you do that.');
+				break;
 			}
 			if(toks.length < 3) {
-			document.sendMessage('Silly man, I need a name to work with here.');
-			break;
+				document.sendMessage('Silly man, I need a name to work with here.');
+				break;
 			}
 			if(toks.length < 4) {
-			document.sendMessage('What do you want me to do about ' + toks[2] + '?');
-			break;
+				document.sendMessage('What do you want me to do about ' + toks[2] + '?');
+				break;
 			}
 			if(toks[3].toLowerCase() == "false" && document.manualPermission[toks[2].toLowerCase()].admin == true) {
-			document.manualPermission[toks[2].toLowerCase()] = {admin:false, approver:lUser};
-			document.sendMessage(toks[2] + ' has been removed from my trusted circle.');
+				document.manualPermission[toks[2].toLowerCase()] = {admin:false, approver:lUser};
+				document.sendMessage(toks[2] + ' has been removed from my trusted circle.');
 			}
 			if(toks[3].toLowerCase() == "true" && (document.manualPermission[toks[2].toLowerCase()] == undefined || document.manualPermission[toks[2].toLowerCase()].admin != true)) {
-			document.manualPermission[toks[2].toLowerCase()] = {admin:true,approver:lUser};
-			document.sendMessage(toks[2] + ' may now speak to me as an equal.');
+				document.manualPermission[toks[2].toLowerCase()] = {admin:true,approver:lUser};
+				document.sendMessage(toks[2] + ' may now speak to me as an equal.');
 			}
 			break;
 			
@@ -348,7 +356,7 @@ document.parseCommands = function(e) {
 	}
 	
 	var wallType = userTag.find('span').attr('class');
-	if(document.antiWall[wallType] != 0) {
+	if(document.antiWall[wallType] != undefined) {
 		if(document.antiWall[wallType] < 20) {
 			document.sendMessage('C-C-C-Combo Breaker!');
 			document.antiWall = {};
