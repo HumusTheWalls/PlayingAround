@@ -142,28 +142,39 @@ document.parseCommands = function(e) {
 	var didCommand = false;
 	if(toks[0]=="HTB")
 	switch(toks[1].toLowerCase()) {
+		case "wassup":
+		case "hiya":
+		case "hello":
+		case "yo":
+		case "sup":
 		case "hi":
 			didCommand = true;
 			document.sendMessage('Hi ' + user + '!');
 			break;
+		case "banned":
 		case "appeal":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayBanAppeal(t);
 			break;
+		case "hack":
+		case "hacks":
+		case "hacking":
 		case "hacker":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayHackerReport(t);
 			break;
+		case "bugs":
 		case "bug":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayBugReport(t);
 			break;
+		case "minez":
 		case "reddit":
 			didCommand = true;
 			document.sayReddit();
@@ -177,6 +188,8 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			document.sendMessage(user + ': I\'m fluent in the following phrases: about, commands, appeal, hacker, bug, email, stuck, color, reddit, plugdj');
 			break;
+		case "minezmod":
+		case "gmail":
 		case "email":
 			didCommand = true;
 			var t = '';
@@ -189,17 +202,22 @@ document.parseCommands = function(e) {
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayColor(t);
 			break;
+		case "unstuck":
 		case "stuck":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayStuck(t);
 			break;
+		case "date":
+		case "hour":
 		case "time":
 			didCommand = true;
 			var d = new Date;
 			document.sendMessage(user + ': It\'s ' + d.getHours() + ':' + d.getMinutes() + '.');
 			break;
+		case "dj":
+		case "plug":
 		case "plugdj":
 			didCommand = true;
 			document.sayPlugDj();
@@ -208,6 +226,8 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			document.sayPing();
 			break;
+		case "silence":
+		case "shutup":
 		case "mute":
 			didCommand = true;
 			if(document.botMuted) {
@@ -279,7 +299,8 @@ document.parseCommands = function(e) {
 			document.ignored[u.toLowerCase()] = false;
 			document.sendMessage(u + ' may be more interesting than I thought, and I will be listening to them again.');
 			break;
-			
+		case "love":
+		case "heart":
 		case "<3":
 			didCommand = true;
 			document.sendMessage('<3 you ' + toks[2] + '!');
