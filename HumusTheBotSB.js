@@ -318,7 +318,7 @@ document.parseCommands = function(e) {
 			document.manualPermission[toks[2].toLowerCase()] = false;
 			document.sendMessage(toks[2] + ' has been removed from my trusted circle.');
 			}
-			if(toks[3] == 'true' && manualPermission[toks[2]] != true) {
+			if(toks[3] == 'true' /*&& manualPermission[toks[2]] != true*/) {
 			document.manualPermission[toks[2].toLowerCase()] = true;
 			document.sendMessage(toks[2] + ' may now speak to me as an equal.');
 			}
