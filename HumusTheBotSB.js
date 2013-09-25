@@ -55,9 +55,9 @@ document.msgsStuck = new Array(		'If you\'re stuck in a block and need an admin 
 					'Being stuck in a block sucks. Try our new 3-step program to get unstuck! Step 1: post in [URL=http://shotbow.net/forum/threads/15016/]the Stuck Thread[/URL]. Step 2: play some Annihilation. Step 3: Sleep off your day\'s achievements.',
 					'If you\'re stuck and you know it, post right [URL=http://shotbow.net/forum/threads/15016/]here![/URL] If you\'re stuck and you know it, post right [URL=http://shotbow.net/forum/threads/15016/]here![/URL] If you\'re stuck and you know it, and you really want to show it, if you\'re stuck and you know it, post right [URL=http://shotbow.net/forum/threads/15016/]here![/URL]');
 
-document.msgsPlugDj = new Array(	'Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network Plug.dj Party[URL]!',
-					'Ravin\' all night at the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network Plug.dj Party[URL]!',
-					'The [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]: Home of the imfamous Poor-Taste Panda!');
+document.msgsPlugDj = new Array(	'Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network Plug.dj Party[/URL]!',
+					'Ravin\' all night at the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network Plug.dj Party[/URL]!',
+					'The [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[/URL]: Home of the imfamous Poor-Taste Panda!');
 
 document.pingMessages = new Array(	'!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie');
  
