@@ -302,7 +302,7 @@ document.parseCommands = function(e) {
 			break;
 		case "permission":
 			didCommand = true;
-			if(!document.userIsOwner()) {
+			if(!document.userIsOwner(userTag)) {
 			document.sendMessage('I\'m sorry, ' + user + ', I can\'t let you do that.');
 			break;
 			}
