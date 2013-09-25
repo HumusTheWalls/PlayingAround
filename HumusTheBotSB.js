@@ -314,14 +314,15 @@ document.parseCommands = function(e) {
 			document.sendMessage('What do you want me to do about ' + toks[2] + '?');
 			break;
 			}
-			if(toks[3] == 'false' && manualPermission[toks[2]] == true) {
+			if(toks[3] == 'false' && document.manualPermission[toks[2].toLowerCase()] == true) {
 			document.manualPermission[toks[2].toLowerCase()] = false;
 			document.sendMessage(toks[2] + ' has been removed from my trusted circle.');
 			}
-			if(toks[3] == 'true' /*&& manualPermission[toks[2]] != true*/) {
+			if(toks[3] == 'true' && document.manualPermission[toks[2].toLowerCase()] != true) {
 			document.manualPermission[toks[2].toLowerCase()] = true;
 			document.sendMessage(toks[2] + ' may now speak to me as an equal.');
 			}
+			break;
 			
 		case "love":
 		case "heart":
