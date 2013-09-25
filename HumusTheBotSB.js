@@ -38,14 +38,33 @@ document.msgsHackerReport = new Array(	'If you need to report a player for hacki
 					'Hackers ruin everyones\' days. [URL=http://shotbow.net/forum/threads/23572/]Report them here[/URL] to earn a free non-existant plushy! *Note: non-existant plushy not guaranteed to exist.');
 
 document.msgsBugReport = new Array(	'If you need to report a bug or exploit, use [URL=http://shotbow.net/forum/threads/2137/]this wonderful hand gadget![/URL] *Hand gadget now available in hot pink!',
-					'I derped.');
+					'Ju1cY_0n3 is trying to complete his collection of bug reports. Help him out by [URL=http://shotbow.net/forum/threads/2137/]submitting a report[/URL] of your own! Now only ' + Math.floor(Math.random()*10000) + ' reports left!',
+					'Bugs are disgusting little things that are known to carry Mad Player Disease. Do your part to help vaccinate players by [URL=http://shotbow.net/forum/threads/2137/]reporting bugs[/URL] that you find while playing.');
 
+document.msgsReddit = new Array(	'Have you seen [URL=http://reddit.com/r/minez]the MineZ subreddit[/URL] recently?',
+					'Tune in to [URL=http://reddit.com/r/minez]the MineZ subreddit[/URL] to find out the latest MineZ and Shotbow news!',
+					'[URL=http://reddit.com/r/minez]The MineZ subreddit[/URL] is having a sale today on Karma: Twice the karma for twice the comments!');
 
-document.pingMessages = new Array('!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie');
+document.msgsEmail = new Array(		'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. mineZmod@gmail.com',
+					'Sometimes just asking your question to the deep void that is the shoutbox isn\'t enough. In those situations, look to mineZmod@gmail.com for help!',
+					'The shoutbox isn\'t a one-stop shop. For some questions, only an admin can help. In those cases, you can reach one by emailing mineZmod@gmail.com!');
+
+document.msgsColor = new Array(		'The colors of usernames in chat denote the donor/rank of the user. Light Orange = default user, Grey = silver member, Yellow = gold member, Cyan = platinum member, Green = emerald member, Purple = obsidian member, Red = website staff, and Dark Orange = admins.');
+
+document.msgsStuck = new Array(		'If you\'re stuck in a block and need an admin to TP you out, just post in [URL=http://shotbow.net/forum/threads/15016/]the Stuck Thread[/URL]. An admin will unstuck you soon!',
+					'Being stuck in a block sucks. Try our new 3-step program to get unstuck! Step 1: post in [URL=http://shotbow.net/forum/threads/15016/]the Stuck Thread[/URL]. Step 2: play some Annihilation. Step 3: Sleep off your day\'s achievements.',
+					'If you\'re stuck and you know it, post right [URL=http://shotbow.net/forum/threads/15016/]here![/URL] If you\'re stuck and you know it, post right [URL=http://shotbow.net/forum/threads/15016/]here![/URL] If you\'re stuck and you know it, and you really want to show it, if you\'re stuck and you know it, post right [URL=http://shotbow.net/forum/threads/15016/]here![/URL]');
+
+document.msgsPlugDj = new Array(	'Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network Plug.dj Party[URL]!',
+					'Ravin\' all night at the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network Plug.dj Party[URL]!',
+					'The [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]: Home of the imfamous Poor-Taste Panda!');
+
+document.pingMessages = new Array(	'!meow', '!pong', '!mrowr', '!politics', '!moo', '!xyzzy', '!cookie');
  
 document.botHasPermission = function(userTag) {
 	if(document.userIsOwner(userTag)) return true;
 	if(document.userIsAdmin(userTag)) return true;
+	if(document.userIsBuilder(userTag)) return true;
 	if(document.userIsHCFAdmin(userTag)) return true;
 	return false;
 };
@@ -62,6 +81,12 @@ document.userIsAdmin = function(userTag) {
 	return false;
 };
 
+document.userIsBuilder = function(userTag) {
+	var span = userTag.find('span');
+	if(span.attr('class') == 'style28') return true;
+	return false;
+}
+
 document.userIsHCFAdmin = function(userTag) {
 	var span = userTag.find('span');
 	if(span.attr('class') == 'style43') return true;
@@ -77,26 +102,26 @@ document.sayHackerReport = function(userName) {
 };
 
 document.sayBugReport = function(userName) {
-	document.sendMessage(userName + document.msgsBugReport[Math.floor(Math.random()*document.msgsButReport.length)]);};
+	document.sendMessage(userName + document.msgsBugReport[Math.floor(Math.random()*document.msgsBugReport.length)]);};
 
 document.sayReddit = function() {
-	document.sendMessage('Have you seen [URL=http://reddit.com/r/minez]the MineZ subbreddit[/URL] recently?');
+	document.sendMessage(document.msgsReddit[Math.floor(Math.random()*document.msgsReddit.length)]);};
 };
 
 document.sayEmail = function(userName) {
-	document.sendMessage(userName + 'I and my colleagues here are just too lame to help you directly. You\'ll need to email a mod to get further help. minezmod@gmail.com');
+	document.sendMessage(userName + document.msgsEmail[Math.floor(Math.random()*document.msgsEmail.length)]);};
 };
 
 document.sayColor = function(userName) {
-	document.sendMessage(userName + 'The colors of usernames in chat denote the donor/rank of the user. Light Orange = default user, Grey = silver member, Yellow = gold member, Cyan = platinum member, Green = emerald member, Purple = obsidian member, Red = website staff, and Dark Orange = admins.')
+	document.sendMessage(userName + document.msgsColor[Math.floor(Math.random()*document.msgsColor.length)]);};
 };
 
 document.sayStuck = function(userName) {
-	document.sendMessage(userName + 'If you\'re stuck in a block and need an admin to TP you out, just post in [URL=http://shotbow.net/forum/threads/15016/]the Stuck Thread[/URL]. An admin will unstuck you soon!');
+	document.sendMessage(userName + document.msgsStuck[Math.floor(Math.random()*document.msgsStuck.length)]);};
 };
 
 document.sayPlugDj = function() {
-	document.sendMessage('Check out the [URL=http://plug.dj/shotbow-network-official-party/]Shotbow Network plug.dj Party[URL]!')
+	document.sendMessage(document.msgsPlugDj[Math.floor(Math.random()*document.msgsPlugDj.length)]);};
 };
 
 document.sayPing = function() {
