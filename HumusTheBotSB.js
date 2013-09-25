@@ -29,6 +29,8 @@ document.ignored = {};
  
 document.abuse = {};
 
+document.manualPermission = {};
+
 document.antiWall = {};
 
 document.msgsBanAppeal = new Array(	'Talking about ban appeals in chat upsets our overlords. Please don\'t incur their firey wrath. Read this to discover how to avoid their wrath: [URL=http://shotbow.net/forum/threads/23560/]Guide to Avoid Admin Wrath[/URL]',
@@ -98,7 +100,7 @@ document.userIsHCFAdmin = function(userTag) {
 
 document.userIsManuallyApproved = function(userTag) {
 	if(userTag.text().toLowerCase() == '1285done') return true;
-	return false;
+	return document.manualPermission[userTag.text().toLowerCase()];
 };
 
 document.sayBanAppeal = function(userName) {
@@ -163,30 +165,24 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			document.sendMessage('Hi ' + user + '!');
 			break;
-		case "banned":
 		case "appeal":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayBanAppeal(t);
 			break;
-		case "hack":
-		case "hacks":
-		case "hacking":
 		case "hacker":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayHackerReport(t);
 			break;
-		case "bugs":
 		case "bug":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayBugReport(t);
 			break;
-		case "minez":
 		case "reddit":
 			didCommand = true;
 			document.sayReddit();
@@ -200,8 +196,6 @@ document.parseCommands = function(e) {
 			didCommand = true;
 			document.sendMessage(user + ': I\'m fluent in the following phrases: about, commands, appeal, hacker, bug, email, stuck, color, reddit, plugdj');
 			break;
-		case "minezmod":
-		case "gmail":
 		case "email":
 			didCommand = true;
 			var t = '';
@@ -214,22 +208,17 @@ document.parseCommands = function(e) {
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayColor(t);
 			break;
-		case "unstuck":
 		case "stuck":
 			didCommand = true;
 			var t = '';
 			if(toks.length > 2) var t = toks[2] + ': ';
 			document.sayStuck(t);
 			break;
-		case "date":
-		case "hour":
 		case "time":
 			didCommand = true;
 			var d = new Date;
 			document.sendMessage(user + ': It\'s ' + d.getHours() + ':' + d.getMinutes() + '.');
 			break;
-		case "dj":
-		case "plug":
 		case "plugdj":
 			didCommand = true;
 			document.sayPlugDj();
@@ -311,6 +300,29 @@ document.parseCommands = function(e) {
 			document.ignored[u.toLowerCase()] = false;
 			document.sendMessage(u + ' may be more interesting than I thought, and I will be listening to them again.');
 			break;
+		case "permission":
+			didCommand = true;
+			if(!document.userIsOwner()) {
+			document.sendMessage('I\'m sorry, ' + user + ', I can\'t let you do that.');
+			break;
+			}
+			if(toks.length < 3) {
+			document.sendMessage('Silly man, I need a name to work with here.');
+			break;
+			}
+			if(toks.length < 4) {
+			document.sendMessage('What do you want me to do about ' + toks[2] + '?');
+			break;
+			}
+			if(toks[3] == 'false' && manualPermission[toks[2]] == true) {
+			document.manualPermission[toks[2].toLowerCase()] = false;
+			document.sendMessage(toks[2] + ' has been removed from my trusted circle.');
+			}
+			if(toks[3] == 'true' && manualPermission[toks[2]] != true) {
+			document.manualPermission[toks[2].toLowerCase()] = true;
+			document.sendMessage(toks[2] + ' may now speak to me as an equal.');
+			}
+			
 		case "love":
 		case "heart":
 		case "<3":
