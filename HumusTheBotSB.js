@@ -136,9 +136,9 @@ document.parseCommands = function(e) {
 	var lUser = user.toLowerCase();
 	var msg = e.find('.taigachat_messagetext').text().trim();
 	var toks = msg.split(" ");
-	if(document.botSleeping && !document.userIsOwner()) return;
+	if(document.botSleeping && !document.userIsOwner(userTag)) return;
 	if(document.botMuted && !document.botHasPermission(userTag)) return;
-	if(document.ignored[lUser] && !document.userIsOwner()) return;
+	if(document.ignored[lUser] && !document.userIsOwner(userTag)) return;
 	var didCommand = false;
 	if(toks[0]=="HTB")
 	switch(toks[1].toLowerCase()) {
