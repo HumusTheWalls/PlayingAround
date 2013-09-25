@@ -102,26 +102,27 @@ document.sayHackerReport = function(userName) {
 };
 
 document.sayBugReport = function(userName) {
-	document.sendMessage(userName + document.msgsBugReport[Math.floor(Math.random()*document.msgsBugReport.length)]);};
+	document.sendMessage(userName + document.msgsBugReport[Math.floor(Math.random()*document.msgsBugReport.length)]);
+};
 
 document.sayReddit = function() {
-	document.sendMessage(document.msgsReddit[Math.floor(Math.random()*document.msgsReddit.length)]);};
+	document.sendMessage(document.msgsReddit[Math.floor(Math.random()*document.msgsReddit.length)]);
 };
 
 document.sayEmail = function(userName) {
-	document.sendMessage(userName + document.msgsEmail[Math.floor(Math.random()*document.msgsEmail.length)]);};
+	document.sendMessage(userName + document.msgsEmail[Math.floor(Math.random()*document.msgsEmail.length)]);
 };
 
 document.sayColor = function(userName) {
-	document.sendMessage(userName + document.msgsColor[Math.floor(Math.random()*document.msgsColor.length)]);};
+	document.sendMessage(userName + document.msgsColor[Math.floor(Math.random()*document.msgsColor.length)]);
 };
 
 document.sayStuck = function(userName) {
-	document.sendMessage(userName + document.msgsStuck[Math.floor(Math.random()*document.msgsStuck.length)]);};
+	document.sendMessage(userName + document.msgsStuck[Math.floor(Math.random()*document.msgsStuck.length)]);
 };
 
 document.sayPlugDj = function() {
-	document.sendMessage(document.msgsPlugDj[Math.floor(Math.random()*document.msgsPlugDj.length)]);};
+	document.sendMessage(document.msgsPlugDj[Math.floor(Math.random()*document.msgsPlugDj.length)]);
 };
 
 document.sayPing = function() {
