@@ -314,12 +314,12 @@ document.parseCommands = function(e) {
 			document.sendMessage('What do you want me to do about ' + toks[2] + '?');
 			break;
 			}
-			if(toks[3] == 'false' && document.manualPermission[toks[2].toLowerCase()] == true) {
-			document.manualPermission[toks[2].toLowerCase()] = false;
+			if(toks[3].toLowerCase() == "false" && document.manualPermission[toks[2].toLowerCase()].admin == true) {
+			document.manualPermission[toks[2].toLowerCase()] = {admin:false, approver:lUser};
 			document.sendMessage(toks[2] + ' has been removed from my trusted circle.');
 			}
-			if(toks[3] == 'true' && document.manualPermission[toks[2].toLowerCase()] != true) {
-			document.manualPermission[toks[2].toLowerCase()] = true;
+			if(toks[3].toLowerCase() == "true" && (document.manualPermission[toks[2].toLowerCase()] == undefined || document.manualPermission[toks[2].toLowerCase()].admin != true)) {
+			document.manualPermission[toks[2].toLowerCase()] = {admin:true,approver:lUser};
 			document.sendMessage(toks[2] + ' may now speak to me as an equal.');
 			}
 			break;
