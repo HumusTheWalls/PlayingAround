@@ -22,6 +22,8 @@ document.testInt = setInterval(function() {
 document.botMuted = false;
 
 document.botSleeping = false;
+
+document.lastPinged = 0;
  
 document.ignored = {};
  
@@ -126,6 +128,10 @@ document.sayPlugDj = function() {
 };
 
 document.sayPing = function() {
+	var d = new Date();
+	var curTime = Math.floor(d.getTime()/1000);
+	if(curTime < document.lastPinged + 30) return;
+	document.lastPinged = curTime;
 	document.sendMessage(document.pingMessages[Math.floor(Math.random()*document.pingMessages.length)]);
 };
  
