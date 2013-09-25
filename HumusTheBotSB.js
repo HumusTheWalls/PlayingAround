@@ -68,12 +68,13 @@ document.botHasPermission = function(userTag) {
 	if(document.userIsAdmin(userTag)) return true;
 	if(document.userIsBuilder(userTag)) return true;
 	if(document.userIsHCFAdmin(userTag)) return true;
+	if(document.userIsManuallyApproved(userTag)) return true;
 	return false;
 };
 
 document.userIsOwner = function(userTag) {
-	if(userTag.text().toLowerCase() == 'humusthewalls' ||
-	userTag.text().toLowerCase() == 'eefuh') return true;
+	if(userTag.text().toLowerCase() == 'humusthewalls') return true;
+	if(userTag.text().toLowerCase() == 'eefuh') return true;
 	return false;
 };
 
@@ -92,6 +93,11 @@ document.userIsBuilder = function(userTag) {
 document.userIsHCFAdmin = function(userTag) {
 	var span = userTag.find('span');
 	if(span.attr('class') == 'style43') return true;
+	return false;
+};
+
+document.userIsManuallyApproved = function(userTag) {
+	if(userTag.text().toLowerCase() == '1285done') return true;
 	return false;
 };
 
